@@ -1,0 +1,153 @@
+#hBox {
+    -fx-background-color: #4059a9;
+}
+#BtnAdd {
+    -fx-background-color:
+            #3c7fb1,
+            linear-gradient(#fafdfe, #e8f5fc),
+            linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-background-image: url('img/add.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50px;
+}
+#BtnAdd:hover {
+    -fx-background-color: #dcd61f,
+        linear-gradient(#fafdfe, #fcfce8),
+         linear-gradient(#eaf6fd 0%, #fbfce2 49%, #fdfdcd 50%, #f5f5af 100%);
+
+}
+#BtnAdd:pressed {
+    -fx-background-color: #3c7fb1;
+    -fx-text-fill: white;
+}
+#BtnDel {
+    -fx-background-color:
+            #ff3617,
+            linear-gradient(#f3e6db, #f3dcd7),
+            linear-gradient(#efd7d0 0%, #eebbba 49%, #ee9983 50%, #eb756f 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-background-image: url('img/delete.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 35px;
+    -fx-background-position: 10%;
+}
+#BtnDel:hover {
+    -fx-background-color: #dcd61f,
+    linear-gradient(#fafdfe, #fcfce8),
+    linear-gradient(#eaf6fd 0%, #fbfce2 49%, #fdfdcd 50%, #f5f5af 100%);
+}
+#BtnDel:pressed {
+    -fx-background-color: #b13029;
+    -fx-text-fill: white;
+}
+#BtnSave {
+     -fx-background-color:
+             #2faa23,
+             linear-gradient(#eafeef, #c3fcd4),
+             linear-gradient(#c6fde5 0%, #adfcba 49%, #92fd92 50%, #5bf590 100%);
+     -fx-background-insets: 0,1,2;
+     -fx-background-radius: 3,2,1;
+     -fx-padding: 3 30 3 30;
+     -fx-text-fill: black;
+     -fx-font-size: 12px;
+     -fx-background-image: url('img/save.png');
+     -fx-background-repeat: no-repeat;
+     -fx-background-size: 33px;
+     -fx-background-position: 4%;
+ }
+#BtnSave:hover {
+    -fx-background-color: #dcd61f,
+    linear-gradient(#fafdfe, #fcfce8),
+    linear-gradient(#eaf6fd 0%, #fbfce2 49%, #fdfdcd 50%, #f5f5af 100%);
+
+}
+#BtnSave:pressed {
+    -fx-background-color: #2faa23;
+    -fx-text-fill: white;
+}
+#BtnEdit {
+    -fx-background-color:
+            #fa7f21,
+            linear-gradient(#fee8b5, #fcc177),
+            linear-gradient(#fdba69 0%, #fc9e53 49%, #fda959 50%, #f5922b 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-background-image: url('img/edit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 33px;
+    -fx-background-position: 4%;
+}
+#BtnEdit:hover {
+    -fx-background-color: #dcd61f,
+    linear-gradient(#fafdfe, #fcfce8),
+    linear-gradient(#eaf6fd 0%, #fbfce2 49%, #fdfdcd 50%, #f5f5af 100%);
+
+}
+#BtnEdit:pressed {
+    -fx-background-color: #fa7f21;
+    -fx-text-fill: white;
+}
+
+#BtnInfo {
+    -fx-background-color:
+            #c42fe3,
+            linear-gradient(#fec9ea, #fc90ab),
+            linear-gradient(#fca3fd 0%, #fc80e5 49%, #f758fd 50%, #f556bd 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-background-image: url('img/info.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 35px;
+    -fx-background-position: 10%;
+}
+#BtnInfo:hover {
+    -fx-background-color: #dcd61f,
+    linear-gradient(#fafdfe, #fcfce8),
+    linear-gradient(#eaf6fd 0%, #fbfce2 49%, #fdfdcd 50%, #f5f5af 100%);
+
+}
+#BtnInfo:pressed {
+    -fx-background-color: #c42fe3;
+    -fx-text-fill: white;
+}
+
+#BtnCalendar {
+    -fx-background-color:
+            #74d3b4,
+            linear-gradient(#c8feed, #97f7fc),
+            linear-gradient(#8dfdd6 0%, #6ffcd0 49%, #5afdbe 50%, #30f1ad 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 3,2,1;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-background-image: url('img/calendar.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 35px;
+    -fx-background-position: 3%;
+}
+#BtnCalendar:hover {
+    -fx-background-color: #dcd61f,
+    linear-gradient(#fafdfe, #fcfce8),
+    linear-gradient(#eaf6fd 0%, #fbfce2 49%, #fdfdcd 50%, #f5f5af 100%);
+
+}
+#BtnCalendar:pressed {
+    -fx-background-color: #74d3b4;
+    -fx-text-fill: white;
+}

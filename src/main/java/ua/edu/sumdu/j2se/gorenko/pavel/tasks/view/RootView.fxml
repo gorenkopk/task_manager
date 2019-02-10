@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@RootView.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.edu.sumdu.j2se.gorenko.pavel.tasks.controller.TaskManagerController">
+   <children>
+      <HBox id="hBox" fx:id="hBox" prefHeight="60.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button id="BtnAdd" fx:id="BtnAdd" mnemonicParsing="false" onAction="#onActionBtnAdd" prefHeight="85.0" prefWidth="135.0" text="   Добавить">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="BtnEdit" fx:id="BtnEdit" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="78.0" prefWidth="135.0" text="  Изменить">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="BtnInfo" fx:id="BtnInfo" mnemonicParsing="false" onAction="#onActionBtnInfo" prefHeight="155.0" prefWidth="135.0" text="Инфо">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="BtnDel" fx:id="BtnDel" mnemonicParsing="false" onAction="#onActionBtnDel" prefHeight="104.0" prefWidth="135.0" text="     Удалить">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="BtnCalendar" fx:id="BtnCalendar" mnemonicParsing="false" prefHeight="97.0" prefWidth="135.0" text="   Календарь">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+            <Button id="BtnSave" fx:id="BtnSave" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="140.0" prefWidth="135.0" text="  Сохранить " textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </HBox.margin>
+            </Button>
+         </children></HBox>
+      <TableView fx:id="tableView" layoutX="70.0" layoutY="76.0" prefHeight="200.0" prefWidth="524.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0">
+        <columns>
+          <TableColumn fx:id="firstNameColumn" editable="false" minWidth="200.0" prefWidth="200.0" sortable="false" text="Название задачи" />
+          <TableColumn fx:id="activeColumn" editable="false" prefWidth="75.0" sortable="false" text="Активная" />
+            <TableColumn fx:id="timeColumn" editable="false" prefWidth="120.0" sortable="false" text="Дата начала" />
+            <TableColumn fx:id="endColumn" editable="false" prefWidth="120.0" sortable="false" text="Дата завершения" />
+            <TableColumn fx:id="intervalColumn" editable="false" prefWidth="120.0" sortable="false" text="Интервал" />
+            <TableColumn fx:id="repatedColumn" editable="false" prefWidth="140.0" sortable="false" text="Повтор задачи" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
