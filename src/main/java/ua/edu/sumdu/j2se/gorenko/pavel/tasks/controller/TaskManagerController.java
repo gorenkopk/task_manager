@@ -3,6 +3,7 @@ package ua.edu.sumdu.j2se.gorenko.pavel.tasks.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import ua.edu.sumdu.j2se.gorenko.pavel.tasks.MainApp;
 import ua.edu.sumdu.j2se.gorenko.pavel.tasks.model.Task;
 import ua.edu.sumdu.j2se.gorenko.pavel.tasks.model.TaskIO;
 import ua.edu.sumdu.j2se.gorenko.pavel.tasks.view.RootView;
@@ -11,8 +12,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+
 public class TaskManagerController extends RootView  {
 
+    private static final Logger logger = Logger.getLogger(TaskManagerController.class);
 
     @FXML
     public void onActionBtnAdd() throws IOException {
@@ -20,6 +24,7 @@ public class TaskManagerController extends RootView  {
         boolean okClicked = mainApp.showTaskDetails(tempTask, "Добавить новую задачу");
         if (okClicked) {
             taskList.add(tempTask);
+            logger.info("Task add successful");
         }
     }
 
@@ -55,8 +60,8 @@ public class TaskManagerController extends RootView  {
     public void onActionBtnSave() {
         try {
             TaskIO.writeBinary(taskList, new File("tasks.bin"));
-        } catch (IOException e) {
-            System.out.println(e);
+        } catch (Exception e) {
+            logger.error(e);
         }
     }
 
@@ -73,6 +78,7 @@ public class TaskManagerController extends RootView  {
         alert.setTitle("No Selection");
         alert.setHeaderText("Не выбрана задача");
         alert.setContentText("Пожалуйста, выберите из списка задачу, которую хотите " + typeMessage + ".");
+        logger.warn("Some alerts: " + typeMessage);
         alert.showAndWait();
     }
 }

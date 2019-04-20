@@ -22,7 +22,9 @@ import java.io.IOException;
 public class MainApp extends Application {
 
     private Stage primaryStage;
-    final static Logger logger = Logger.getLogger(MainApp.class);
+    final static String titleApp = "Task Manager";
+    final static String icoApp = "file:ico/ico.png";
+    private static final Logger logger = Logger.getLogger(MainApp.class);
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -35,13 +37,12 @@ public class MainApp extends Application {
         TaskManagerController controller = loader.getController();
         controller.setMainApp(this);
 
-        primaryStage.setTitle("Task Manager");
-        primaryStage.getIcons().add(new Image("file:ico/ico.png"));
+        primaryStage.setTitle(titleApp);
+        primaryStage.getIcons().add(new Image(icoApp));
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
         primaryStage.show();
-        this.logMethod("Start primary stage");
-
+        logger.info("Primary stage start normally");
     }
 
     public static void main(String[] args) {
@@ -71,19 +72,10 @@ public class MainApp extends Application {
 
             return controller.isOkClicked();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e);
+            System.out.println("Primary Stage" + e.getMessage());
             return false;
         }
     }
 
-    public void logMethod(String parameter) {
-        if(logger.isDebugEnabled())
-            logger.debug("Debug mode " + parameter);
-
-        if(logger.isInfoEnabled())
-            logger.info("Info mode " + parameter);
-
-        logger.error("Error mode: " + parameter);
-
-    }
 }

@@ -18,9 +18,12 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+
 public class TaskDetailsController  {
 
     public static DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+    private static final Logger logger = Logger.getLogger(TaskDetailsController.class);
 
     private Stage dialogStage;
     private boolean okClicked = false;
@@ -65,9 +68,7 @@ public class TaskDetailsController  {
         }
 
         editIntervalField.setText(Integer.toString(task.getRepeatInterval()));
-
-
-
+        logger.info("Show: " + message);
     }
 
     public boolean isOkClicked() {
@@ -81,6 +82,7 @@ public class TaskDetailsController  {
                 task.setTitle(titleField.getText());
                 Date times = Date.from(editTimeTimeField.getValue().atDate(editDateTimeField.getValue()).atZone(ZoneId.systemDefault()).toInstant());
                 task.setTime(times);
+                okClicked = true;
                 break;
             case 14:
             case 15:
@@ -89,6 +91,7 @@ public class TaskDetailsController  {
                 Date end = Date.from(editTimeEndField.getValue().atDate(editDateEndField.getValue()).atZone(ZoneId.systemDefault()).toInstant());
                 int interval = Integer.parseInt(editIntervalField.getText());
                 task.setTime(start, end, interval);
+                okClicked = true;
                 break;
             default:
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -96,8 +99,10 @@ public class TaskDetailsController  {
                 alert.setHeaderText("Введенные данные не корректны");
                 alert.setContentText("Пожалуйста, проверьте введенные данные и нажмите \"Записать\" еще раз.");
                 alert.showAndWait();
+                logger.warn("Not valid input");
+                okClicked = false;
         }
-        okClicked = true;
+        logger.debug("okClicked - " + okClicked);
         dialogStage.close();
     }
 
@@ -116,8 +121,9 @@ public class TaskDetailsController  {
              if (Integer.parseInt(editIntervalField.getText()) > 0)
                  rightInput += 7;
                     } catch (NumberFormatException e) {
-                        System.out.println(e);
+                        logger.error(e);
                     }
+         logger.debug("isInputValid - " + rightInput);
         return rightInput;
     }
 }

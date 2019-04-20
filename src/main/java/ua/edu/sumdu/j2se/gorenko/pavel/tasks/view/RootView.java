@@ -15,10 +15,12 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import org.apache.log4j.Logger;
 
 public class RootView implements Observer{
 
     public static DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+    private static final Logger logger = Logger.getLogger(RootView.class);
 
     @FXML public TableView<Task> tableView;
     @FXML public TableColumn<Task, String> firstNameColumn;
@@ -38,7 +40,7 @@ public class RootView implements Observer{
         try {
             TaskIO.readBinary(taskList, new File("tasks.bin"));
         } catch (IOException e) {
-            System.out.println(e);
+            logger.error(e);
         }
         refreshTable();
     }
@@ -59,8 +61,12 @@ public class RootView implements Observer{
 
     public void refreshTable() {
         listView.remove(0, listView.size());
-        for (Task t: taskList) {
-            listView.add(t);
+        if (taskList.size() == 0) {
+            logger.error("Haven`t rows");
+        } else {
+            for (Task t : taskList) {
+                listView.add(t);
+            }
         }
     }
 
