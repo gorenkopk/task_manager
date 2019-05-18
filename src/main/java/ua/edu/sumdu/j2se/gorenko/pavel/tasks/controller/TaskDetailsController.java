@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTimePicker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ua.edu.sumdu.j2se.gorenko.pavel.tasks.model.Task;
@@ -38,6 +39,9 @@ public class TaskDetailsController  {
     @FXML private JFXDatePicker editDateEndField;
     @FXML private JFXTimePicker editTimeEndField;
     @FXML private TextField editIntervalField;
+    @FXML private CheckBox repeatedCheck;
+    @FXML private CheckBox activeCheck;
+
     @FXML private Button BtnOK;
 
     @FXML
@@ -68,6 +72,9 @@ public class TaskDetailsController  {
         }
 
         editIntervalField.setText(Integer.toString(task.getRepeatInterval()));
+
+        repeatedCheck.setSelected(task.isRepeated());
+        activeCheck.setSelected(task.isActive());
         logger.info("Show: " + message);
     }
 
@@ -82,6 +89,7 @@ public class TaskDetailsController  {
                 task.setTitle(titleField.getText());
                 Date times = Date.from(editTimeTimeField.getValue().atDate(editDateTimeField.getValue()).atZone(ZoneId.systemDefault()).toInstant());
                 task.setTime(times);
+                task.setActive(activeCheck.isSelected());
                 okClicked = true;
                 break;
             case 14:
@@ -91,6 +99,7 @@ public class TaskDetailsController  {
                 Date end = Date.from(editTimeEndField.getValue().atDate(editDateEndField.getValue()).atZone(ZoneId.systemDefault()).toInstant());
                 int interval = Integer.parseInt(editIntervalField.getText());
                 task.setTime(start, end, interval);
+                task.setActive(activeCheck.isSelected());
                 okClicked = true;
                 break;
             default:
